@@ -29,14 +29,15 @@ api.interceptors.response.use(
 		return response;
 	}
 	// async (error) => {
-	// 	const originalRequest = error.config;
-	// 	if (error.response.status === 401 && !originalRequest._retry) {
-	// 		originalRequest._retry = true;
-	// 		const res = await getNewTokens();
-	// 		if (!res?.response) return;
-	// 		setCookie(res.response.data);
-	// 		return api(originalRequest);
-	// 	}
+	// 	// const originalRequest = error.config;
+	// 	// if (error.response.status === 403) {
+	// 	// 	originalRequest._retry = true;
+	// 	// 	const res = await getNewTokens();
+	// 	// 	if (!res?.response) return;
+	// 	// 	setCookie(res.response.data);
+	// 	// 	return api(originalRequest);
+	// 	// }
+	// 	console.log(error);
 	// }
 );
 

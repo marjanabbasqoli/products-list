@@ -1,0 +1,78 @@
+.body {
+	padding: 1rem;
+}
+
+.container {
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+table {
+	width: 100%;
+	border: 1px solid #e4e4e4;
+	border-radius: 30px;
+	border-collapse: separate;
+	border-spacing: 0;
+
+	thead {
+		th {
+			background: #f2f2f2;
+			height: 70px;
+			font-weight: 500;
+			font-size: 14px;
+			padding-inline: 2rem;
+			text-align: start;
+
+			&:first-child {
+				border-top-right-radius: 30px;
+			}
+			&:last-child {
+				border-top-left-radius: 30px;
+			}
+		}
+	}
+}
+
+.add {
+	display: block;
+	background: #55a3f0;
+	height: 45px;
+	width: 132px;
+	border-radius: 10px;
+	border: none;
+	color: white;
+	margin-inline-start: auto;
+	margin-bottom: 10px;
+	font-family: inherit;
+	font-weight: 200;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+h2 {
+	font-size: 24px;
+	font-weight: 200;
+	display: flex;
+	align-items: center;
+
+	img {
+		margin-inline-end: 6px;
+	}
+}
+
+.messageBox {
+	background: white;
+	border-radius: 1rem;
+	width: 100%;
+	border: 1px solid #e4e4e4;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+}

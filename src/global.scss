@@ -1,0 +1,119 @@
+/* ----------------------------- YekanBakh ----------------------------- */
+@font-face {
+	font-family: Vazir;
+	font-style: normal;
+	font-weight: 100;
+	src: url("./assets/fonts/Vazirmatn-Thin.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: Vazir;
+	font-style: normal;
+	font-weight: 200;
+	src: url("./assets/fonts/Vazirmatn-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: Vazir;
+	font-style: normal;
+	font-weight: 300;
+	src: url("./assets/fonts/Vazirmatn-Medium.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: Vazir;
+	font-style: normal;
+	font-weight: 400;
+	src: url("./assets/fonts/Vazirmatn-Bold.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: Vazir;
+	font-style: normal;
+	font-weight: 600;
+	src: url("./assets/fonts/Vazirmatn-ExtraBold.ttf") format("truetype");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #f7f8f8;
+	font-family: Vazir;
+	font-weight: 200;
+}
+
+.theme-form {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+
+	.container {
+		border: 1px solid #e4e4e4;
+		background: white;
+		border-radius: 40px;
+		width: 100%;
+		max-width: 460px;
+		padding: 35px;
+	}
+
+	h3 {
+		font-size: 24px;
+		text-align: center;
+		margin-bottom: 63px;
+	}
+
+	input {
+		background: #f2f2f2;
+		border-radius: 15px;
+		height: 53px;
+		width: 100%;
+		border: none;
+		margin-bottom: 1rem;
+		padding-inline: 14px;
+		outline: none;
+		font-family: inherit;
+
+		&::placeholder {
+			color: rgba(40, 40, 40, 0.5);
+		}
+	}
+
+	[type="submit"] {
+		background: #55a3f0;
+		border-radius: 15px;
+		height: 53px;
+		color: white;
+		width: 100%;
+		border: none;
+		margin-bottom: 1rem;
+		margin-top: 19px;
+		font-family: inherit;
+		cursor: pointer;
+		transition: all 0.3s;
+		&:hover {
+			background: #0164c8;
+		}
+	}
+
+	.link {
+		color: #3a8bed;
+		text-decoration: none;
+	}
+
+	img {
+		display: block;
+		margin: 0 auto 1rem;
+	}
+
+	p {
+		color: red;
+		font-size: 13px;
+		margin: -0.5rem 0 0.5rem;
+	}
+}

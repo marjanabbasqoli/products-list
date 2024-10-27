@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useLogin } from "../services/mutations";
+import logo from "../assets/boto-logo.svg";
 
 const messages = {
 	username: "لطفا نام کاربری را وارد نمایید",
@@ -20,30 +21,37 @@ function LoginPage() {
 		mutate(form);
 	};
 
-	const navigate = useNavigate();
-	const { mutate, isPending } = useLogin(navigate);
+	const { mutate, isPending } = useLogin(useNavigate());
 
 	return (
-		<>
-			<form onSubmit={handleSubmit(loginHandler)}>
-				<input
-					placeholder="نام کاربری"
-					{...register("username", { required: true })}
-				/>
-				<p>{errors.username && messages.username}</p>
+		<div className="theme-form">
+			<div className="container">
+				<img src={logo} alt="" />
+				<h3>فرم ورود</h3>
+				<form onSubmit={handleSubmit(loginHandler)}>
+					<input
+						placeholder="نام کاربری"
+						{...register("username", { required: true })}
+					/>
+					<p>{errors.username && messages.username}</p>
 
-				<input
-					type="password"
-					placeholder="رمز عبور"
-					{...register("password", { required: true })}
-				/>
-				<p>{errors.password && messages.password}</p>
+					<input
+						type="password"
+						placeholder="رمز عبور"
+						{...register("password", { required: true })}
+					/>
+					<p>{errors.password && messages.password}</p>
 
-				<button type="submit" disabled={isPending}>
-					ورود
-				</button>
-			</form>
-		</>
+					<button type="submit" disabled={isPending}>
+						ورود
+					</button>
+				</form>
+
+				<Link to="/register" className="link">
+					ایجاد حساب کاربری!
+				</Link>
+			</div>
+		</div>
 	);
 }
 

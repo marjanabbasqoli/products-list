@@ -2,7 +2,7 @@ import TanstackQueryProvider from "./providers/tanStackQueryProvider";
 import { Toaster } from "react-hot-toast";
 
 import Router from "./Router/Router";
-import { useState } from "react";
+import "./global.scss";
 
 function App() {
 	return (

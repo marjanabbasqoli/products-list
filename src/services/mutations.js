@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
 import api from "../configs/api";
@@ -26,8 +26,8 @@ const useLogin = (navigate) => {
 
 	return useMutation({
 		mutationFn,
-		onSuccess: (data) => {
-			setCookie("token", data.data.token, 30);
+		onSuccess: (res) => {
+			setCookie("token", res.data.token, 30);
 			navigate("/");
 		},
 		onError: (error) =>
@@ -35,4 +35,62 @@ const useLogin = (navigate) => {
 	});
 };
 
-export { useRegister, useLogin };
+const useDeleteProduct = () => {
+	const queryClient = useQueryClient();
+	const mutationFn = (id) => api.delete(`products/${id}`);
+	return useMutation({
+		mutationFn,
+		onSuccess: () => {
+			toast.success("محصول با موفقیت حذف شد");
+			queryClient.invalidateQueries({
+				queryKey: ["products"],
+			});
+		},
+		onError: (error) => {
+			toast.error(error.message);
+		},
+	});
+};
+
+const useAddProduct = () => {
+	const queryClient = useQueryClient();
+	const mutationFn = (data) => api.post("products", data);
+	return useMutation({
+		mutationFn,
+		onSuccess: () => {
+			toast.success("محصول با موفقیت اضافه شد");
+			queryClient.invalidateQueries({
+				queryKey: ["products"],
+			});
+		},
+		onError: (error) => {
+			toast.error(error.message);
+		},
+	});
+};
+
+const useEditProduct = () => {
+	const queryClient = useQueryClient();
+	const mutationFn = (data) => api.put(`products/${data.id}`, data);
+
+	return useMutation({
+		mutationFn,
+		onSuccess: () => {
+			toast.success("محصول با موفقیت ویرایش شد");
+			queryClient.invalidateQueries({
+				queryKey: ["products"],
+			});
+		},
+		onError: (error) => {
+			toast.error(error.message);
+		},
+	});
+};
+
+export {
+	useRegister,
+	useLogin,
+	useDeleteProduct,
+	useAddProduct,
+	useEditProduct,
+};

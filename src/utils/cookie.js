@@ -1,5 +1,5 @@
-const setCookie = (name, value, days = 30) => {
-	document.cookie = `${name}=${value}; max-age=${days * 24 * 60 * 60}; path=/`;
+const setCookie = (name, value, days = 1) => {
+	document.cookie = `${name}=${value}; max-age=${days * 24 * 60 * 60};`;
 	return true;
 };
 
