@@ -10,25 +10,22 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import NotFoundPage from "../pages/404";
 import { getCookie } from "../utils/cookie";
+import AuthProvider from "../providers/AuthProvider";
 
 function Router() {
-	const token = getCookie("token");
-
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route
 					path="/"
-					element={token ? <ProductsPage /> : <Navigate to="login" replace />}
+					element={
+						<AuthProvider>
+							<ProductsPage />
+						</AuthProvider>
+					}
 				/>
-				<Route
-					path="/login"
-					element={!token ? <LoginPage /> : <Navigate to="/" replace />}
-				/>
-				<Route
-					path="/register"
-					element={!token ? <RegisterPage /> : <Navigate to="/" replace />}
-				/>
+				<Route path="/login" element={<LoginPage />} />
+				<Route path="/register" element={<RegisterPage />} />
 				<Route path="/*" element={<NotFoundPage />} />
 			</Routes>
 		</BrowserRouter>
